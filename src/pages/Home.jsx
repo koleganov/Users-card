@@ -1,15 +1,15 @@
 import React from 'react';
-
+import App, { arr } from '../App';
 import Card from '../components/Card';
 import "../index.scss";
 
 
-function Home () {
+function Home ({users}) {
   return (
    <div className='cards'>
-    <Card name={'Name'} gender={'Gender'} />
-    <Card name={'Name'} gender={'Gender'} />
-    <Card name={'Name'} gender={'Gender'} />
+    {
+      arr.map(obj => <Card users={users}/>)
+    }
    </div>
   )
 }

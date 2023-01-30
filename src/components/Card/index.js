@@ -1,16 +1,16 @@
 import React from "react";
-
+import App from "../../App";
 import styles from "./Card.module.scss";
 
-const Card = ({ name, gender }) => {
+const Card = ({ users }) => {
   return (
-    <div class={styles.cardClient}>
-      <div class={styles.userPicture}>
-        <img src="/images/woman.jpg" alt="avatar" />
+    <div className={styles.cardClient}>
+      <div className={styles.userPicture}>
+        <img src="/images/man.png" alt="avatar" />
       </div>
-      <p class={styles.nameClient}>
-        {name}
-        <span>{gender}</span>
+      <p className={styles.nameClient}>
+        {users.name}
+        <span>{users.gender}</span>
       </p>
     </div>
   );

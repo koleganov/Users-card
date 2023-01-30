@@ -1,0 +1,22 @@
+body {
+    background-color: rgb(215, 245, 229);
+}
+
+.wrapper {
+    max-width: 970px;
+    min-height: 700px;
+    margin: 50px auto;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    
+    div {
+        margin-right: 10px;
+        margin-top: 20px;
+    }
+}

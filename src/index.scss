@@ -9,6 +9,11 @@ body {
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
     padding: 30px;
+    
+
+    .cards {
+        display: flex;
+    }
 }
 
 .cards {
@@ -18,5 +23,22 @@ body {
     div {
         margin-right: 10px;
         margin-top: 20px;
+    }
+}
+
+.cardInfoBtn {
+    background: none;
+    border: 1px solid rgb(138, 138, 138);
+    border-radius: 5px;
+    padding: 5px;
+    background-color: rgb(234, 246, 234);
+    transition: background-color 0.3s ease-in-out;
+
+    &:hover {
+        background-color: rgb(207, 243, 222);
+    }
+
+    a {
+        text-decoration: none;
     }
 }

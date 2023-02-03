@@ -1,17 +1,23 @@
-import React from 'react';
-import App, { arr } from '../App';
-import Card from '../components/Card';
-import "../index.scss";
+import React from "react";
+import Card from "../components/Card";
 
 
-function Home ({users}) {
+const Home = ({items, onInfoCart}) => {
   return (
-   <div className='cards'>
-    {
-      arr.map(obj => <Card users={users}/>)
-    }
-   </div>
-  )
-}
+    <div className="cards">
+      {items.map((item) => (
+        <Card
+          key={item.id}
+          name={item.name}
+          gender={item.gender}
+          image={
+            item.gender === "male" ? "/images/man.png" : "/images/woman.jpg"
+          }
+          info={onInfoCart}
+        />
+      ))}
+    </div>
+  );
+};
 
-export default Home
+export default Home;

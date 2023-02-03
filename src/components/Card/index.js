@@ -1,16 +1,20 @@
 import React from "react";
-import App from "../../App";
 import styles from "./Card.module.scss";
 
-const Card = ({ users }) => {
+const Card = ({name, gender, image, info}) => {
+
+  const onClickCard = () => {
+    info({name, gender, image});
+  }
+
   return (
-    <div className={styles.cardClient}>
+    <div className={styles.cardClient} onClick={onClickCard}>
       <div className={styles.userPicture}>
-        <img src="/images/man.png" alt="avatar" />
+        <img src={image} alt="avatar" />
       </div>
       <p className={styles.nameClient}>
-        {users.name}
-        <span>{users.gender}</span>
+       {name}
+        <span>{gender}</span>
       </p>
     </div>
   );

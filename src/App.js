@@ -1,27 +1,28 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import {Routes, Route} from 'react-router-dom';
 
 import Home from "./pages/Home";
+import CardInfo from "./pages/CardInfo";
+
+import users from "./users.json";
+
 
 import "./index.scss";
 
-export const arr = [
-  {name: 'kostya', gender: 'male'},
-  {name: 'andrey', gender: 'female'},
-  {name: 'emil', gender: 'male'},
-];
-
 function App() {
+  const [items, setItems] = React.useState(users);
+  const [cards, setCards] = React.useState([]);
 
-  const [user, setUsers] = React.useState(0);
-
-  const users = arr[user];
-  
+  const onInfoCart = (obj) => {
+    // setCards([...cards, obj])
+    console.log(obj)
+  }
 
   return (
     <div className="wrapper">
       <Routes>
-        <Route path="/" element={<Home users={users}/>} />
+        <Route path="" element={<Home items={items} onInfoCart={onInfoCart}/>} />
+        <Route path="/cardinfo" element={<CardInfo />} />
       </Routes>
     </div>
   );

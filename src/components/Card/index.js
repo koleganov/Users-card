@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./Card.module.scss";
 
-const Card = ({ name, gender, image, info }) => {
+const Card = ({ id, name, gender, image, status, email, info }) => {
   const onClickCard = () => {
-    info({ name, gender, image });
+    info({ id, name, gender, image, status, email });
   };
 
   return (
@@ -11,10 +11,8 @@ const Card = ({ name, gender, image, info }) => {
       <div className={styles.userPicture}>
         <img src={image} alt="avatar" />
       </div>
-      <p className={styles.nameClient}>
-        {name}
-        <span>{gender}</span>
-      </p>
+      <p className={styles.nameClient}>{name}</p>
+      <span>{gender}</span>
     </div>
   );
 };

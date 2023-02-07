@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import { Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
@@ -7,31 +8,28 @@ import CardInfo from "./pages/CardInfo";
 import "./index.scss";
 
 function App() {
-  const [items, setItems] = React.useState([]);
-  const [cards, setCards] = React.useState([]);
+  const [card, setCard] = React.useState([]);
+  const [cardInfo, setCardInfo] = React.useState([]);
 
   React.useEffect(() => {
-    fetch("https://gorest.co.in/public/v2/users")
-      .then((res) => {
-        return res.json();
-      })
-      .then((json) => {
-        setItems(json);
-      });
-  }, []);
+    axios.get("https://gorest.co.in/public/v2/users").then((resp) => {
+      const allCards = resp.data;
+      setCard(allCards);
+    });
+  }, [setCard]);
 
   const onInfoCart = (obj) => {
-    setCards(prev => [...prev, obj]);
+    setCardInfo((prev) => [...prev, obj]);
   };
 
   return (
     <div className="wrapper">
       <Routes>
+        <Route path="" element={<Home card={card} onInfoCart={onInfoCart} />} />
         <Route
-          path=""
-          element={<Home items={items} onInfoCart={onInfoCart} />}
+          path="cardinfo/:id"
+          element={<CardInfo card={cardInfo} onInfoCart={onInfoCart} />}
         />
-        <Route path="/cardinfo" element={<CardInfo items={cards} />} />
       </Routes>
     </div>
   );

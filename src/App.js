@@ -12,10 +12,16 @@ function App() {
   const [cardInfo, setCardInfo] = React.useState([]);
 
   React.useEffect(() => {
-    axios.get("https://gorest.co.in/public/v2/users").then((resp) => {
-      const allCards = resp.data;
-      setCard(allCards);
-    });
+    axios
+      .get("https://gorest.co.in/public/v2/users")
+      .then((resp) => {
+        const allCards = resp.data;
+        setCard(allCards);
+      })
+      .catch((err) => {
+        alert("Карточки не были загружены, перезагрузите страницу...");
+        console.log(err);
+      });
   }, [setCard]);
 
   const onInfoCart = (obj) => {
